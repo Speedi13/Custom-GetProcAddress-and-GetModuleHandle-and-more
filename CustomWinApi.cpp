@@ -408,7 +408,7 @@ PVOID WINAPI ImageDirectoryEntryToDataRom(PVOID Base, WORD HeaderMagic, USHORT D
 /// Locates a directory entry within the image header and returns the address of the data for the directory entry
 /// </summary>
 /// <param name="Base">The base address of the image or data file</param>
-/// <param name="MappedAsImage">If the flag is TRUE, the file is mapped by the system as an image. If this flag is FALSE, the file is mapped as a data file by the MapViewOfFile function</param>
+/// <param name="MappedAsImage">If the flag is TRUE, the file is mapped by the system as an image. If this flag is FALSE, the file is mapped as a data file by the MapViewOfFile / ReadFile function</param>
 /// <param name="DirectoryEntry">The directory entry to be located</param>
 /// <param name="Size">A pointer to a variable that receives the size of the data for the directory entry that is located</param>
 /// <returns>If the function succeeds, the return value is a pointer to the data for the directory entry</returns>
@@ -505,7 +505,7 @@ IMAGE_SECTION_HEADER* WINAPI ImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders, PVOI
 /// Locates a relative virtual address (RVA) within the image header of a file that is mapped as a file and returns the virtual address of the corresponding byte in the file.
 /// </summary>
 /// <param name="NtHeaders">A pointer to an IMAGE_NT_HEADERS structure. This structure can be obtained by calling the ImageNtHeader function</param>
-/// <param name="Base">The base address of an image that is mapped into memory through a call to the MapViewOfFile function</param>
+/// <param name="Base">The base address of an image that is mapped into memory through a call to the MapViewOfFile / ReadFile function</param>
 /// <param name="Rva">The relative virtual address to be located</param>
 /// <returns>If the function succeeds, the return value is the virtual address in the mapped file</returns>
 PVOID WINAPI ImageRvaToVa(PIMAGE_NT_HEADERS NtHeaders, void* Base, DWORD Rva)
