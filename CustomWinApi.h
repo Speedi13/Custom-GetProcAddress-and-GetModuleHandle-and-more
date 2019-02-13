@@ -35,7 +35,7 @@ HMODULE WINAPI GetModuleW( _In_opt_ LPCWSTR lpModuleName );
 /// <summary>
 /// Locates the IMAGE_NT_HEADERS structure in a PE image and returns a pointer to the data
 /// </summary>
-/// <param name="Base">The base address of an image that is mapped into memory by a call to the MapViewOfFile function</param>
+/// <param name="Base">The base address of an image that is mapped into memory by a call to the MapViewOfFile / ReadFile function</param>
 /// <returns>If the function succeeds, the return value is a pointer to an IMAGE_NT_HEADERS structure</returns>
 IMAGE_NT_HEADERS* WINAPI ImageNtHeader( _In_ PVOID Base );
 
@@ -46,7 +46,7 @@ IMAGE_NT_HEADERS* WINAPI ImageNtHeader( _In_ PVOID Base );
 /// Locates a directory entry within the image header and returns the address of the data for the directory entry
 /// </summary>
 /// <param name="Base">The base address of the image or data file</param>
-/// <param name="MappedAsImage">If the flag is TRUE, the file is mapped by the system as an image. If this flag is FALSE, the file is mapped as a data file by the MapViewOfFile function</param>
+/// <param name="MappedAsImage">If the flag is TRUE, the file is mapped by the system as an image. If this flag is FALSE, the file is mapped as a data file by the MapViewOfFile/ ReadFile function</param>
 /// <param name="DirectoryEntry">The directory entry to be located</param>
 /// <param name="Size">A pointer to a variable that receives the size of the data for the directory entry that is located</param>
 /// <returns>If the function succeeds, the return value is a pointer to the data for the directory entry</returns>
